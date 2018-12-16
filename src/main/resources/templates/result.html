@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-spacing: 10px;
+}
+</style>
+<title>Weather Ballon App Statics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table style="width: 80%" align="center">
+		<tr>
+			<th colspan="3">
+				<h2>Statics</h2>
+			</th>
+		</tr>
+		<tr th:if="${options.minTemp != null }">
+			<td th:text="'The minimum temperature: ' + ${min}+' º'+${options.temperature}">min</td>
+		</tr>
+		<tr th:if="${options.maxTemp != null }">
+			<td th:text="'The maximum temperature: ' + ${max}+' º'+${options.temperature}">max</td>
+		</tr>
+		<tr th:if="${options.meanTemp != null }">
+			<td th:text="'The mean temperature: ' + ${mean}+' º'+${options.temperature}">mean</td>
+		</tr>
+		<tr th:if="${options.countObservations != null }"
+			th:each="instance : ${ocurence}">
+			<td th:text="${instance.key}+': '+${instance.value}">keyValue</td>
+		</tr>
+		<tr th:if="${options.totalDistance != null }">
+			<td th:text="'The total distance travelled: ' + ${distance}+' '+${options.distance}">distance</td>
+		</tr>
+	</table>
+
+	<a href="/weather">Submit another message</a>
+</body>
+</html>

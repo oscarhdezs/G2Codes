@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-spacing: 10px;
+}
+</style>
+<title>Weather Ballon App</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1 align="center">Weather Ballon</h1>
+
+	<form action="#" th:action="@{/weather}" th:object="${options}"
+		method="post">
+		<table style="width: 80%" align="center">
+			<tr>
+				<th colspan="3">
+					<h2>Please Select the statistics to show and its appropriate
+						measure</h2>
+				</th>
+			</tr>
+			<tr>
+				<td><input type="checkbox" th:field="*{minTemp}" th:value="min" />Minimum
+					temperature</td>
+				<td><input type="checkbox" th:field="*{maxTemp}" th:value="max" />Maximum
+					temperature</td>
+				<td><input type="checkbox" th:field="*{meanTemp}"
+					th:value="mean" />Mean temperature</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><select
+					th:field="*{temperature}">
+						<option th:value="'C'" th:text="Celsius"></option>
+						<option th:value="'F'" th:text="Fahrenheit"></option>
+						<option th:value="'K'" th:text="kelvin"></option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="checkbox"
+					th:field="*{countObservations}" th:value="count" />Number of
+					observations from each observatory</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="checkbox"
+					th:field="*{totalDistance}" th:value="total" />Total distance
+					travelled</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><select th:field="*{distance}">
+						<option th:value="'Km'" th:text="Kilometer"></option>
+						<option th:value="'Miles'" th:text="Milles"></option>
+						<option th:value="'Metros'" th:text="Meter"></option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="checkbox"
+					th:field="*{generateReport}" th:value="Report" />Generate Report</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><input type="submit"
+					value="Submit" /> <input type="reset" value="Reset" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
